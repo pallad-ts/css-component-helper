@@ -1,0 +1,32 @@
+{
+  "name": "@pallad/css-component-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compiled/index.js",
+  "types": "compiled/index.d.ts",
+  "files": [
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pallad-ts/css-component-helper.git"
+  },
+  "scripts": {
+    "test": "npx pallad-scripts test",
+    "compile": "npm run generate-barrels && ../../node_modules/.bin/pallad-scripts compile",
+    "lint": "npx pallad-scripts lint",
+    "generate-barrels": "npx barrelsby -l all --delete -d ./src"
+  },
+  "homepage": "https://github.com/pallad-ts/css-component-helper#readme",
+  "author": "Łukasz Kużyński <lukasz.kuzynski@gmail.com> (https://wookieb.pl)",
+  "license": "MIT",
+  "devDependencies": {
+    "@pallad/scripts": "^3.0.2"
+  },
+  "dependencies": {
+    "csstype": "^3.1.2"
+  }
+}
