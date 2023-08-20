@@ -9,7 +9,7 @@ export interface CSSComponent<TVariants extends VariantsDescriptor, TVariables e
 	name: string;
 	dashCaseName: string;
 
-	styleObject(object: StyleObject<TVariants>): CSS.Properties;
+	styleObject(object: StyleObject<TVariants, TVariables>): CSS.Properties;
 
 	variable<T extends TVariables>(name: T): CSSVariable;
 

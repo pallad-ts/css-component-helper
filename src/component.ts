@@ -21,15 +21,6 @@ function flyweightInitializer<T>(initializer: (name: string) => T) {
 	}
 };
 
-function ourStylesToCssProperties({vars, ...styles}: StyleObject.CSSTypeProperties): CSS.Properties {
-	if (vars) {
-		for (const [varName, value] of Object.entries(vars)) {
-			// @ts-ignore
-			styles[varName] = value;
-		}
-	}
-	return styles as CSS.Properties;
-}
 
 export function component<TVariants extends VariantsDescriptor, TVariables extends string = string, TSubComponentName extends string = string>(name: string) {
 
@@ -44,6 +35,19 @@ export function component<TVariants extends VariantsDescriptor, TVariables exten
 	const variableInitializer = flyweightInitializer(name => {
 		return new CSSVariable(`--${dashCaseName}-${dashCase(name)}`);
 	});
+
+	function ourStylesToCssProperties({vars, ...styles}: StyleObject.CSSTypeProperties<string>): CSS.Properties {
+		if (vars) {
+			for (const [varName, value] of Object.entries(vars)) {
+				if (varName.startsWith('--')) {
+					(styles as any)[varName] = value;
+				} else {
+					(styles as any)[o.variable(varName as TVariables).name] = value;
+				}
+			}
+		}
+		return styles as CSS.Properties;
+	}
 
 	const dashCaseName = dashCase(name);
 	const o: CSSComponent<TVariants, TVariables, TSubComponentName> = {
@@ -66,7 +70,7 @@ export function component<TVariants extends VariantsDescriptor, TVariables exten
 					}
 
 					for (const [variantValue, definition] of Object.entries(variantValueDefinitions)) {
-						root[o.variant(variant).selector.withValue(variantValue as any).self] = ourStylesToCssProperties(definition as StyleObject.CSSTypeProperties);
+						root[o.variant(variant).selector.withValue(variantValue as any).self] = ourStylesToCssProperties(definition as StyleObject.CSSTypeProperties<TVariables>);
 					}
 				}
 			}

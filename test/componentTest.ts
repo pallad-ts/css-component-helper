@@ -12,7 +12,7 @@ describe('component', () => {
 			expect(component.styleObject({
 				base: {
 					vars: {
-						[component.variable('isDisabled').name]: '1',
+						isDisabled: '1'
 					},
 					border: '1px solid red',
 				},
@@ -23,7 +23,7 @@ describe('component', () => {
 						},
 						small: {
 							vars: {
-								[component.variable('padding').name]: '10'
+								padding: '10',
 							},
 							content: '"size-small"',
 						},
