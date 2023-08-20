@@ -7,7 +7,7 @@ describe('dashCase', () => {
 		['IsDisabled', 'is-disabled'],
 		['isCSSValid', 'is-cssvalid'],
 		['isCssValid', 'is-css-valid'],
-	])('% -> %', (input, expected) => {
+	])('%s -> %s', (input, expected) => {
 		return expect(dashCase(input)).toBe(expected);
-	})
+	});
 })

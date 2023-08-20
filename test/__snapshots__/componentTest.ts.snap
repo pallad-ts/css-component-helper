@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component applying variants general 1`] = `
+{
+  "data-button-index": 10,
+  "data-button-is-loading": true,
+  "data-button-size": "small",
+}
+`;
+
+exports[`component component reference general 1`] = `
+ComponentReference {
+  "entry": [
+    "data-ref",
+    "button-end",
+  ],
+  "name": "button-end",
+  "object": {
+    "data-ref": "button-end",
+  },
+  "selector": CSSBaseSelector {
+    "raw": "[data-ref="button-end"",
+    "self": "&[data-ref="button-end"",
+  },
+}
+`;
+
+exports[`component style object general 1`] = `
+{
+  "&[data-button-size="large"]": {
+    "content": ""size-large"",
+  },
+  "&[data-button-size="medium"]": {
+    "content": ""size-medium"",
+  },
+  "&[data-button-size="small"]": {
+    "--button-padding": "10",
+    "content": ""size-small"",
+  },
+  "&[data-button-size]": {
+    "content": ""size"",
+  },
+  "--button-is-disabled": "1",
+  "border": "1px solid red",
+}
+`;
+
+exports[`component variable general 1`] = `
+CSSVariable {
+  "name": "--button-padding",
+  "reference": "var(--button-padding)",
+}
+`;

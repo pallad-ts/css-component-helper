@@ -1,6 +1,6 @@
 {
   "name": "@pallad/css-component-helper",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "compiled/index.js",
   "types": "compiled/index.d.ts",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "npx pallad-scripts test",
-    "compile": "npm run generate-barrels && ../../node_modules/.bin/pallad-scripts compile",
+    "compile": "npm run generate-barrels && npx pallad-scripts compile",
     "lint": "npx pallad-scripts lint",
     "generate-barrels": "npx barrelsby -l all --delete -d ./src"
   },
