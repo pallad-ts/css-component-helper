@@ -1,6 +1,5 @@
 import {VariantsDescriptor} from "./VariantsDescriptor";
 import {StyleObject} from "./StyleObject";
-import type * as CSS from 'csstype';
 import {CSSVariable} from "./CSSVariable";
 import {Variant} from "./Variant";
 import {ComponentReference} from "./ComponentReference";
@@ -9,7 +8,7 @@ export interface CSSComponent<TVariants extends VariantsDescriptor, TVariables e
 	name: string;
 	dashCaseName: string;
 
-	styleObject(object: StyleObject<TVariants, TVariables>): CSS.Properties;
+	styleObject(object: StyleObject<TVariants, TVariables>): any; // this is temporary . Will fix later
 
 	variable<T extends TVariables>(name: T): CSSVariable;
 
