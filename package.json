@@ -18,6 +18,7 @@
     "test": "npx pallad-scripts test",
     "compile": "npm run generate-barrels && npx pallad-scripts compile",
     "lint": "npx pallad-scripts lint",
+    "prepublishOnly": "npm run compile",
     "generate-barrels": "npx barrelsby -l all --delete -d ./src"
   },
   "homepage": "https://github.com/pallad-ts/css-component-helper#readme",
